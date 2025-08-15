@@ -1,5 +1,6 @@
 import pygame
 import constants
+import player
 
 def main():
     print("Starting Asteroids!")
@@ -14,6 +15,8 @@ def main():
     clock = pygame.time.Clock()
     dt = 0 # delta time    
 
+    p = player.Player(x=constants.SCREEN_WIDTH/2, y=constants.SCREEN_HEIGHT/2)
+
     # Add game loop
     while True:
         # Check if user click close window button and kill the game
@@ -21,6 +24,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill(color="black")
+        p.draw(screen)
         pygame.display.flip() # Update render
         dt = clock.tick(60) / 1000
 
