@@ -11,12 +11,18 @@ def main():
     # Set game screen
     screen = pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
 
+    clock = pygame.time.Clock()
+    dt = 0 # delta time    
+
+    # Add game loop
     while True:
+        # Check if user click close window button and kill the game
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill(color="black")
-        pygame.display.flip()
+        pygame.display.flip() # Update render
+        dt = clock.tick(60) / 1000
 
 
 if __name__ == "__main__":
